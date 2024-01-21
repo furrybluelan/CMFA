@@ -126,7 +126,7 @@ jobs:
 #          to: ${{ secrets.TELEGRAM_GROUP_ID }}
 #          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
 #          document: app/build/outputs/apk/meta/release/*v8a-release.apk
-          document: app/build/outputs/apk/meta/release/*v8a-release.apk
+#          document: app/build/outputs/apk/meta/release/*v8a-release.apk
  
 #        - name: Push to Telegram Bot
 #        uses: appleboy/telegram-action@v0.1.1
