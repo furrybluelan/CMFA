@@ -1,6 +1,7 @@
 name: Build Pre-Release
 
 on:
+  push:
   workflow_dispatch:
 
 jobs:
