@@ -62,7 +62,7 @@ jobs:
           token: ${{ steps.generate-token.outputs.token }}
           commit-message: Update Dependencies
           branch: update-dependencies
-          delete-branch: false
+          delete-branch: true
           title: 'Update Dependencies'
           draft: false
           body: |
