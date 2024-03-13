@@ -59,7 +59,7 @@ jobs:
         id: cpr
         uses: peter-evans/create-pull-request@v6
         with:
-          token: ${{ secrets.PAT }}
+          token: ${{ secrets.PAT_TOKEN }}
           commit-message: Update Dependencies
           branch: update-dependencies
           delete-branch: true
