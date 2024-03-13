@@ -43,4 +43,5 @@ jobs:
         uses: GitRML/delete-workflow-runs@main
         with:
           retain_days: 3
+          repository: ${{ github.repository }}
           token: ${{ secrets.GITHUB_TOKEN }}
