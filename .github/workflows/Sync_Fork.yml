@@ -42,6 +42,6 @@ jobs:
       - name: Delete old workflow runs
         uses: Mattraks/delete-workflow-runs@v2.0.6
         with:
-          retain_days: '3' # 删除三天前的 runs
+          retain_days: '20' # 删除三天前的 runs
           token: ${{ secrets.PAT_TOKEN }}
           keep_minimum_runs: 2
