@@ -59,3 +59,9 @@ jobs:
                  "https://api.github.com/repos/${{ github.repository }}/actions/runs/$RUN_ID"
             echo "Deleted run ID $RUN_ID"
           done
+
+      - name: Delete old workflow runs
+        uses: actions/delete-workflow-runs@v1
+        with:
+          age: '3d' # 删除三天前的 runs
+          token: ${{ secrets.GITHUB_TOKEN }}
