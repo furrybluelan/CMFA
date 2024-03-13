@@ -61,7 +61,7 @@ jobs:
           done
 
       - name: Delete old workflow runs
-        uses: actions/delete-workflow-runs@v1
+        uses: Mattraks/delete-workflow-runs@v2.0.6
         with:
           age: '3d' # 删除三天前的 runs
           token: ${{ secrets.GITHUB_TOKEN }}
