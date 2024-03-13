@@ -38,3 +38,24 @@ jobs:
           echo "[Error] 由于上游仓库的 workflow 文件变更，导致 GitHub 自动暂停了本次自动更新，你需要手动 Sync Fork 一次"
           echo "[Error] Due to a change in the workflow file of the upstream repository, GitHub has automatically suspended the scheduled automatic update. You need to manually sync your fork."
           exit 1
+      - name: Delete Workflow Runs Older Than 3 Days
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # 获取三天前的日期
+          DATE_THRESHOLD=$(date --date='3 days ago' +%Y-%m-%d)
+          
+          # 获取所有早于该日期的 workflow runs 的 ID
+          RUN_IDS=$(curl -H "Authorization: token $GITHUB_TOKEN" \
+                         -H "Accept: application/vnd.github.v3+json" \
+                         "https://api.github.com/repos/${{ github.repository }}/actions/runs?per_page=100" \
+                    | jq --arg DATE_THRESHOLD "$DATE_THRESHOLD" '.workflow_runs[] | select(.created_at < $DATE_THRESHOLD) | .id')
+          
+          # 遍历并删除每个旧 run
+          for RUN_ID in $RUN_IDS; do
+            curl -X DELETE \
+                 -H "Authorization: token $GITHUB_TOKEN" \
+                 -H "Accept: application/vnd.github.v3+json" \
+                 "https://api.github.com/repos/${{ github.repository }}/actions/runs/$RUN_ID"
+            echo "Deleted run ID $RUN_ID"
+          done
