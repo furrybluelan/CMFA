@@ -40,7 +40,7 @@ jobs:
           exit 1
 
       - name: Delete old workflow runs
-        uses: ActionsRML/delete-workflow-runs@main
+        uses: GitRML/delete-workflow-runs@main
         with:
           retain_days: 3
           token: ${{ secrets.GITHUB_TOKEN }}
