@@ -45,15 +45,15 @@ require (
 	github.com/mdlayher/netlink v1.7.2 // indirect
 	github.com/mdlayher/socket v0.4.1 // indirect
 	github.com/metacubex/gopacket v1.1.20-0.20230608035415-7e2f98a3e759 // indirect
-	github.com/metacubex/gvisor v0.0.0-20240214095142-666a73bcf165 // indirect
+	github.com/metacubex/gvisor v0.0.0-20240320004321-933faba989ec // indirect
 	github.com/metacubex/mihomo v1.7.0 // indirect
 	github.com/metacubex/quic-go v0.42.1-0.20240319071510-a251e5c66a5c // indirect
 	github.com/metacubex/sing-quic v0.0.0-20240310154810-47bca850fc01 // indirect
 	github.com/metacubex/sing-shadowsocks v0.2.6 // indirect
 	github.com/metacubex/sing-shadowsocks2 v0.2.0 // indirect
-	github.com/metacubex/sing-tun v0.2.1-0.20240214100323-23e40bfb9067 // indirect
+	github.com/metacubex/sing-tun v0.2.1-0.20240320004934-5d2b35447bfd // indirect
 	github.com/metacubex/sing-vmess v0.1.9-0.20231207122118-72303677451f // indirect
-	github.com/metacubex/sing-wireguard v0.0.0-20231209125515-0594297f7232 // indirect
+	github.com/metacubex/sing-wireguard v0.0.0-20240320043244-d6a8de454284 // indirect
 	github.com/metacubex/tfo-go v0.0.0-20240228025757-be1269474a66 // indirect
 	github.com/miekg/dns v1.1.58 // indirect
 	github.com/mroth/weightedrand/v2 v2.1.0 // indirect
@@ -75,7 +75,6 @@ require (
 	github.com/sagernet/utls v1.5.4 // indirect
 	github.com/sagernet/wireguard-go v0.0.0-20231209092712-9a439356a62e // indirect
 	github.com/samber/lo v1.39.0 // indirect
-	github.com/scjalliance/comshim v0.0.0-20230315213746-5e51f40bd3b9 // indirect
 	github.com/shirou/gopsutil/v3 v3.24.2 // indirect
 	github.com/shoenig/go-m1cpu v0.1.6 // indirect
 	github.com/sina-ghaderi/poly1305 v0.0.0-20220724002748-c5926b03988b // indirect
