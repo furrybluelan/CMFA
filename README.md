@@ -1,5 +1,7 @@
 ## Clash Meta for Android
 
+ [Clash.Meta](https://github.com/Jacky-Bruse/mihomo)
+
 A Graphical user interface of [Clash.Meta](https://github.com/MetaCubeX/mihomo/tree/Alpha) for Android
 
 ### Feature
@@ -9,12 +11,6 @@ Feature of [Clash.Meta](https://github.com/MetaCubeX/mihomo/tree/Alpha)
 [<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
      alt="Get it on F-Droid"
      height="80">](https://f-droid.org/packages/com.github.metacubex.clash.meta/)
-
-### Requirement
-
-- Android 5.0+ (minimum)
-- Android 7.0+ (recommend)
-- `armeabi-v7a` , `arm64-v8a`, `x86` or `x86_64` Architecture
 
 ### Build
 
