@@ -48,7 +48,7 @@ require (
 	github.com/metacubex/gvisor v0.0.0-20240320004321-933faba989ec // indirect
 	github.com/metacubex/mihomo v1.7.0 // indirect
 	github.com/metacubex/quic-go v0.42.1-0.20240319071510-a251e5c66a5c // indirect
-	github.com/metacubex/sing-quic v0.0.0-20240310154810-47bca850fc01 // indirect
+	github.com/metacubex/sing-quic v0.0.0-20240409064816-c16ac6b1f4b4 // indirect
 	github.com/metacubex/sing-shadowsocks v0.2.6 // indirect
 	github.com/metacubex/sing-shadowsocks2 v0.2.0 // indirect
 	github.com/metacubex/sing-tun v0.2.6 // indirect
