@@ -1,7 +1,5 @@
 ## Clash Meta for Android
 
- [Clash.Meta](https://github.com/Jacky-Bruse/mihomo)
-
 A Graphical user interface of [Clash.Meta](https://github.com/MetaCubeX/mihomo/tree/Alpha) for Android
 
 ### Feature
