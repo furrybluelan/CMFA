@@ -36,7 +36,7 @@ task("downloadGeoFiles") {
 
     val geoFilesUrls = mapOf(
         "https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.metadb" to "geoip.metadb",
-        "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat" to "geosite.dat",        
+        "https://github.com/Jacky-Bruse/v2ray-rules-dat/releases/latest/download/geoip.dat" to "geosite.dat",        
         // "https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.metadb" to "geoip.metadb",
         // "https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat" to "geosite.dat",
         // "https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/country.mmdb" to "country.mmdb",
