@@ -40,8 +40,8 @@ subprojects {
             minSdk = 21
             targetSdk = 31
 
-            versionName = "2.9.41"
-            versionCode = 209041
+            versionName = "2.9.42"
+            versionCode = 209042
 
             resValue("string", "release_name", "v$versionName")
             resValue("integer", "release_code", "$versionCode")
