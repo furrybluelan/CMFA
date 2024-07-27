@@ -52,17 +52,11 @@ jobs:
           echo "cat signing.properties"
           cat signing.properties
 
-     # - name: Pre-release Build
-     #   if: success()
-     #   uses: gradle/actions/setup-gradle@v3
-     #   with:
-     #     arguments: --no-daemon app:assembleMeta-AlphaRelease
-      - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3
-
       - name: Pre-release Build
         if: success()
-        run: ./gradlew --no-daemon --stacktrace --info app:assembleMeta-AlphaRelease
+        uses: gradle/actions/setup-gradle@v3
+        with:
+          arguments: --no-daemon app:assembleMeta-AlphaRelease
       
       # Delete old Prerelease-alpha
       - uses: dev-drprasad/delete-tag-and-release@v1.1
