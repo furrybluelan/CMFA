@@ -9,10 +9,11 @@ import (
 	"gopkg.in/yaml.v2"
 
 	"cfa/native/app"
-	"github.com/metacubex/mihomo/log"
 
 	"github.com/metacubex/mihomo/config"
 	"github.com/metacubex/mihomo/hub/executor"
+	"github.com/metacubex/mihomo/hub/route"
+	"github.com/metacubex/mihomo/log"
 )
 
 func logDns(cfg *config.RawConfig) {
@@ -75,6 +76,10 @@ func Load(path string) error {
 
 		return err
 	}
+
+	// Start the external controller like in hub.Parse(), but we have set its
+	// default override value to end with ":0" for security.
+	route.ApplyConfig(cfg)
 
 	executor.ApplyConfig(cfg, true)
 
