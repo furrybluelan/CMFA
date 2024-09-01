@@ -1,18 +1,17 @@
 package config
 
 import (
-	"io/ioutil"
+	"os"
 	P "path"
 	"runtime"
 	"strings"
 
-	"gopkg.in/yaml.v2"
+	"gopkg.in/yaml.v3"
 
 	"cfa/native/app"
 
 	"github.com/metacubex/mihomo/config"
-	"github.com/metacubex/mihomo/hub/executor"
-	"github.com/metacubex/mihomo/hub/route"
+	"github.com/metacubex/mihomo/hub"
 	"github.com/metacubex/mihomo/log"
 )
 
@@ -34,7 +33,7 @@ func logDns(cfg *config.RawConfig) {
 func UnmarshalAndPatch(profilePath string) (*config.RawConfig, error) {
 	configPath := P.Join(profilePath, "config.yaml")
 
-	configData, err := ioutil.ReadFile(configPath)
+	configData, err := os.ReadFile(configPath)
 	if err != nil {
 		return nil, err
 	}
@@ -79,9 +78,7 @@ func Load(path string) error {
 
 	// Start the external controller like in hub.Parse(), but we have set its
 	// default override value to end with ":0" for security.
-	route.ApplyConfig(cfg)
-
-	executor.ApplyConfig(cfg, true)
+	hub.ApplyConfig(cfg)
 
 	app.ApplySubtitlePattern(rawCfg.ClashForAndroid.UiSubtitlePattern)
 
@@ -96,5 +93,5 @@ func LoadDefault() {
 		panic(err.Error())
 	}
 
-	executor.ApplyConfig(cfg, true)
+	hub.ApplyConfig(cfg)
 }
