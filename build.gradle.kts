@@ -82,7 +82,7 @@ subprojects {
                 buildConfigField("boolean", "PREMIUM", "Boolean.parseBoolean(\"false\")")
 
                 if (isApp) {
-                    applicationIdSuffix = ".meta"
+                    applicationIdSuffix = ".alpha"
                 }
             }
 
