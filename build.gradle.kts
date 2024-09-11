@@ -77,12 +77,12 @@ subprojects {
             create("meta-alpha") {
                 isDefault = true
                 dimension = flavorDimensionList[0]
-                versionNameSuffix = ".Meta-Alpha"
+                versionNameSuffix = ".Alpha"
 
                 buildConfigField("boolean", "PREMIUM", "Boolean.parseBoolean(\"false\")")
 
                 if (isApp) {
-                    applicationIdSuffix = ".meta"
+                    applicationIdSuffix = ".alpha"
                 }
             }
 
