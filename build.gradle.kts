@@ -74,10 +74,10 @@ subprojects {
         productFlavors {
             flavorDimensions("feature")
 
-            create("meta-alpha") {
+            create("alpha") {
                 isDefault = true
                 dimension = flavorDimensionList[0]
-                versionNameSuffix = ".Meta-Alpha"
+                versionNameSuffix = ".Alpha"
 
                 buildConfigField("boolean", "PREMIUM", "Boolean.parseBoolean(\"false\")")
 
@@ -103,7 +103,7 @@ subprojects {
             getByName("meta") {
                 java.srcDirs("src/foss/java")
             }
-            getByName("meta-alpha") {
+            getByName("alpha") {
                 java.srcDirs("src/foss/java")
             }
         }
