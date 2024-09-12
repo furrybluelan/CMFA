@@ -40,8 +40,8 @@ subprojects {
             minSdk = 21
             targetSdk = 31
 
-            versionName = "2.9.59"
-            versionCode = 209059
+            versionName = "2.11.0"
+            versionCode = 211000
 
             resValue("string", "release_name", "v$versionName")
             resValue("integer", "release_code", "$versionCode")
@@ -81,6 +81,9 @@ subprojects {
 
                 buildConfigField("boolean", "PREMIUM", "Boolean.parseBoolean(\"false\")")
 
+                resValue("string", "launch_name", "@string/launch_name_alpha")
+                resValue("string", "application_name", "@string/application_name_alpha")
+
                 if (isApp) {
                     applicationIdSuffix = ".alpha"
                 }
@@ -92,6 +95,9 @@ subprojects {
                 versionNameSuffix = ".Meta"
 
                 buildConfigField("boolean", "PREMIUM", "Boolean.parseBoolean(\"false\")")
+
+                resValue("string", "launch_name", "@string/launch_name_meta")
+                resValue("string", "application_name", "@string/application_name_meta")
 
                 if (isApp) {
                     applicationIdSuffix = ".meta"
