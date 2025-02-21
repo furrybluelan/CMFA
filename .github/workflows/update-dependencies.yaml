@@ -2,7 +2,7 @@ name: Update Clash-Core and Go Modules
 on:
   schedule:
     - cron: '0 8 * * *'  # 每天早上 8 点触发
-    - cron: '0 18 * * *' # 每天下午 6 点触发
+    - cron: '0 17 * * *' # 每天下午 7 点触发
   repository_dispatch:
     types:
       - core-updated
