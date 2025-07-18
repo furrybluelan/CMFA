@@ -35,7 +35,6 @@ require (
 	github.com/gobwas/httphead v0.1.0 // indirect
 	github.com/gobwas/pool v0.2.1 // indirect
 	github.com/gobwas/ws v1.4.0 // indirect
-	github.com/godbus/dbus/v5 v5.1.0 // indirect
 	github.com/gofrs/uuid/v5 v5.3.2 // indirect
 	github.com/golang/protobuf v1.5.4 // indirect
 	github.com/google/btree v1.1.3 // indirect
@@ -53,7 +52,7 @@ require (
 	github.com/mdlayher/socket v0.4.1 // indirect
 	github.com/metacubex/amneziawg-go v0.0.0-20240922133038-fdf3a4d5a4ab // indirect
 	github.com/metacubex/bart v0.20.5 // indirect
-	github.com/metacubex/bbolt v0.0.0-20240822011022-aed6d4850399 // indirect
+	github.com/metacubex/bbolt v0.0.0-20250715134201-d343f11712df // indirect
 	github.com/metacubex/chacha v0.1.5 // indirect
 	github.com/metacubex/fswatch v0.1.1 // indirect
 	github.com/metacubex/gopacket v1.1.20-0.20230608035415-7e2f98a3e759 // indirect
@@ -63,11 +62,11 @@ require (
 	github.com/metacubex/randv2 v0.2.0 // indirect
 	github.com/metacubex/sing v0.5.4-0.20250605054047-54dc6097da29 // indirect
 	github.com/metacubex/sing-mux v0.3.2 // indirect
-	github.com/metacubex/sing-quic v0.0.0-20250628100430-24f13f1e846e // indirect
+	github.com/metacubex/sing-quic v0.0.0-20250718154553-1b193bec4cbb // indirect
 	github.com/metacubex/sing-shadowsocks v0.2.11-0.20250621023810-0e9ef9dd0c92 // indirect
 	github.com/metacubex/sing-shadowsocks2 v0.2.5-0.20250621023950-93d605a2143d // indirect
 	github.com/metacubex/sing-shadowtls v0.0.0-20250503063515-5d9f966d17a2 // indirect
-	github.com/metacubex/sing-tun v0.4.7-0.20250708161036-39e27fac35ed // indirect
+	github.com/metacubex/sing-tun v0.4.7-0.20250718032855-bfa768693dca // indirect
 	github.com/metacubex/sing-vmess v0.2.2 // indirect
 	github.com/metacubex/sing-wireguard v0.0.0-20250503063753-2dc62acc626f // indirect
 	github.com/metacubex/smux v0.0.0-20250503055512-501391591dee // indirect
@@ -82,7 +81,6 @@ require (
 	github.com/oschwald/maxminddb-golang v1.12.0 // indirect
 	github.com/pierrec/lz4/v4 v4.1.14 // indirect
 	github.com/power-devops/perfstat v0.0.0-20210106213030-5aafc221ea8c // indirect
-	github.com/puzpuzpuz/xsync/v3 v3.5.1 // indirect
 	github.com/quic-go/qpack v0.4.0 // indirect
 	github.com/sagernet/cors v1.2.1 // indirect
 	github.com/sagernet/netlink v0.0.0-20240612041022-b9a21c07ac6a // indirect
