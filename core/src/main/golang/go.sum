@@ -105,8 +105,8 @@ github.com/metacubex/gopacket v1.1.20-0.20230608035415-7e2f98a3e759 h1:cjd4biTvO
 github.com/metacubex/gopacket v1.1.20-0.20230608035415-7e2f98a3e759/go.mod h1:UHOv2xu+RIgLwpXca7TLrXleEd4oR3sPatW6IF8wU88=
 github.com/metacubex/gvisor v0.0.0-20250919004547-6122b699a301 h1:N5GExQJqYAH3gOCshpp2u/J3CtNYzMctmlb0xK9wtbQ=
 github.com/metacubex/gvisor v0.0.0-20250919004547-6122b699a301/go.mod h1:8LpS0IJW1VmWzUm3ylb0e2SK5QDm5lO/2qwWLZgRpBU=
-github.com/metacubex/kcp-go v0.0.0-20250923001605-1ba6f691c45b h1:z7JLKjugnQ1qvDOAD8yMA5C8AlJY3bG+VrrgRntRlUY=
-github.com/metacubex/kcp-go v0.0.0-20250923001605-1ba6f691c45b/go.mod h1:HIJZW4QMhbBqXuqC1ly6Hn0TEYT2SzRw58ns1yGhXTs=
+github.com/metacubex/kcp-go v0.0.0-20251007183319-0df1aec1639a h1:5vdk2pI71itLBT2mpyNExM1UKZ+2mG7MVC+ZARpRXmg=
+github.com/metacubex/kcp-go v0.0.0-20251007183319-0df1aec1639a/go.mod h1:HIJZW4QMhbBqXuqC1ly6Hn0TEYT2SzRw58ns1yGhXTs=
 github.com/metacubex/nftables v0.0.0-20250708020511-be959b9e8902 h1:+OzINlacUgggoeiEBNtXwDzedhlijf6sYiBfavBdDac=
 github.com/metacubex/nftables v0.0.0-20250708020511-be959b9e8902/go.mod h1:Hw5GBK4x+A1fhll+OQdPpbsS0YGHqxFZFxr17PFd2zg=
 github.com/metacubex/quic-go v0.55.1-0.20251004050223-450bd9e32033 h1:LEzvR5AmHEatqE6IWgMBUJHnaiz9VJfZeDGOiHFuWZU=

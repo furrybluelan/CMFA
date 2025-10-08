@@ -50,7 +50,7 @@ require (
 	github.com/metacubex/fswatch v0.1.1 // indirect
 	github.com/metacubex/gopacket v1.1.20-0.20230608035415-7e2f98a3e759 // indirect
 	github.com/metacubex/gvisor v0.0.0-20250919004547-6122b699a301 // indirect
-	github.com/metacubex/kcp-go v0.0.0-20250923001605-1ba6f691c45b // indirect
+	github.com/metacubex/kcp-go v0.0.0-20251007183319-0df1aec1639a // indirect
 	github.com/metacubex/mihomo v1.7.0 // indirect
 	github.com/metacubex/nftables v0.0.0-20250708020511-be959b9e8902 // indirect
 	github.com/metacubex/quic-go v0.55.1-0.20251004050223-450bd9e32033 // indirect
