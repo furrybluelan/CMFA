@@ -65,6 +65,7 @@ require (
 	github.com/metacubex/sing v0.5.6 // indirect
 	github.com/metacubex/sing-mux v0.3.4 // indirect
 	github.com/metacubex/sing-quic v0.0.0-20251004051927-c45ee18473bb // indirect
+	github.com/metacubex/sing-quic v0.0.0-20251004051927-c45ee18473bb // indirect
 	github.com/metacubex/sing-shadowsocks v0.2.12 // indirect
 	github.com/metacubex/sing-shadowsocks2 v0.2.7 // indirect
 	github.com/metacubex/sing-shadowtls v0.0.0-20250503063515-5d9f966d17a2 // indirect
@@ -73,6 +74,7 @@ require (
 	github.com/metacubex/sing-wireguard v0.0.0-20250503063753-2dc62acc626f // indirect
 	github.com/metacubex/smux v0.0.0-20250922175018-15c9a6a78719 // indirect
 	github.com/metacubex/tfo-go v0.0.0-20250921095601-b102db4216c0 // indirect
+	github.com/metacubex/utls v1.8.2 // indirect
 	github.com/metacubex/utls v1.8.2 // indirect
 	github.com/metacubex/wireguard-go v0.0.0-20250820062549-a6cecdd7f57f // indirect
 	github.com/metacubex/yamux v0.0.0-20250918083631-dd5f17c0be49 // indirect
