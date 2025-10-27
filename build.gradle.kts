@@ -4,6 +4,7 @@ import com.android.build.gradle.AppExtension
 import com.android.build.gradle.BaseExtension
 import java.net.URL
 import java.util.*
+import java.security.SecureRandom
 
 buildscript {
     repositories {
@@ -18,6 +19,21 @@ buildscript {
         classpath(libs.build.ksp)
         classpath(libs.build.golang)
     }
+}
+
+// 生成纯随机包名
+fun generateRandomPackageName(): String {
+    val random = SecureRandom()
+    val chars = "abcdefghijklmnopqrstuvwxyz"
+    val length1 = 6 + random.nextInt(5) // 6-10 个字符
+    val length2 = 6 + random.nextInt(5) // 6-10 个字符
+    val length3 = 6 + random.nextInt(5) // 6-10 个字符
+    
+    val part1 = (1..length1).map { chars[random.nextInt(chars.length)] }.joinToString("")
+    val part2 = (1..length2).map { chars[random.nextInt(chars.length)] }.joinToString("")
+    val part3 = (1..length3).map { chars[random.nextInt(chars.length)] }.joinToString("")
+    
+    return "com.$part1.$part2$part3"
 }
 
 subprojects {
@@ -35,7 +51,7 @@ subprojects {
         buildFeatures.buildConfig = true
         defaultConfig {
             if (isApp) {
-                applicationId = "com.github.metacubex.clash"
+                applicationId = generateRandomPackageName()
             }
 
             project.name.let { name ->

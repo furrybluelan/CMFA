@@ -38,21 +38,6 @@ val geoFilesDownloadDir = "src/main/assets"
 val manifestFile = file("src/main/AndroidManifest.xml")
 val manifestBackupFile = file("src/main/AndroidManifest.xml.backup")
 
-// 生成纯随机包名
-fun generateRandomPackageName(): String {
-    val random = SecureRandom()
-    val chars = "abcdefghijklmnopqrstuvwxyz"
-    val length1 = 6 + random.nextInt(5) // 6-10 个字符
-    val length2 = 6 + random.nextInt(5) // 6-10 个字符
-    val length3 = 6 + random.nextInt(5) // 6-10 个字符
-    
-    val part1 = (1..length1).map { chars[random.nextInt(chars.length)] }.joinToString("")
-    val part2 = (1..length2).map { chars[random.nextInt(chars.length)] }.joinToString("")
-    val part3 = (1..length3).map { chars[random.nextInt(chars.length)] }.joinToString("")
-    
-    return "com.$part1.$part2$part3"
-}
-
 // 备份原始 Manifest
 fun backupManifest() {
     if (!manifestBackupFile.exists() && manifestFile.exists()) {
