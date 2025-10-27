@@ -1,6 +1,7 @@
 import java.net.URL
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption
+import java.security.SecureRandom
 
 plugins {
     kotlin("android")
@@ -31,6 +32,162 @@ tasks.getByName("clean", type = Delete::class) {
 }
 
 val geoFilesDownloadDir = "src/main/assets"
+val manifestFile = file("src/main/AndroidManifest.xml")
+val manifestBackupFile = file("src/main/AndroidManifest.xml.backup")
+
+// 生成纯随机包名
+fun generateRandomPackageName(): String {
+    val random = SecureRandom()
+    val chars = "abcdefghijklmnopqrstuvwxyz"
+    val length1 = 6 + random.nextInt(5) // 6-10 个字符
+    val length2 = 6 + random.nextInt(5) // 6-10 个字符
+    val length3 = 6 + random.nextInt(5) // 6-10 个字符
+    
+    val part1 = (1..length1).map { chars[random.nextInt(chars.length)] }.joinToString("")
+    val part2 = (1..length2).map { chars[random.nextInt(chars.length)] }.joinToString("")
+    val part3 = (1..length3).map { chars[random.nextInt(chars.length)] }.joinToString("")
+    
+    return "com.$part1.$part2$part3"
+}
+
+// 备份原始 Manifest
+fun backupManifest() {
+    if (!manifestBackupFile.exists() && manifestFile.exists()) {
+        manifestFile.copyTo(manifestBackupFile, overwrite = false)
+        println("✓ Backed up AndroidManifest.xml")
+    }
+}
+
+// 恢复原始 Manifest
+fun restoreManifest() {
+    if (manifestBackupFile.exists()) {
+        manifestBackupFile.copyTo(manifestFile, overwrite = true)
+        println("✓ Restored AndroidManifest.xml from backup")
+    }
+}
+
+// 修改 Manifest 中的包名
+fun modifyManifestPackage(newPackage: String) {
+    if (!manifestFile.exists()) {
+        println("✗ AndroidManifest.xml not found!")
+        return
+    }
+    
+    val content = manifestFile.readText()
+    
+    // 替换所有 com.github.metacubex.clash 相关的包名
+    val modifiedContent = content
+        .replace(
+            "com.github.metacubex.clash.meta",
+            "$newPackage.action"
+        )
+    
+    manifestFile.writeText(modifiedContent)
+    println("✓ Modified AndroidManifest.xml with package: $newPackage")
+}
+
+// 读取或生成包名配置
+fun getOrCreatePackageName(): String {
+    val configFile = rootProject.file("dynamic_package.properties")
+    
+    return if (configFile.exists()) {
+        val props = Properties().apply {
+            configFile.inputStream().use { load(it) }
+        }
+        val pkg = props.getProperty("package.name")
+        if (pkg != null) {
+            println("Using existing package: $pkg")
+            pkg
+        } else {
+            generateAndSavePackageName(configFile)
+        }
+    } else {
+        generateAndSavePackageName(configFile)
+    }
+}
+
+fun generateAndSavePackageName(configFile: File): String {
+    val packageName = generateRandomPackageName()
+    Properties().apply {
+        setProperty("package.name", packageName)
+        setProperty("generated.time", Date().toString())
+        configFile.outputStream().use { store(it, "Auto-generated random package name for CMFA") }
+    }
+    println("Generated new random package: $packageName")
+    return packageName
+}
+
+// 显示当前包名
+task("showPackageName") {
+    group = "dynamic package"
+    description = "Display the current dynamic package name"
+    
+    doLast {
+        val configFile = rootProject.file("dynamic_package.properties")
+        if (configFile.exists()) {
+            val props = Properties().apply {
+                configFile.inputStream().use { load(it) }
+            }
+            val pkg = props.getProperty("package.name", "Not set")
+            val time = props.getProperty("generated.time", "Unknown")
+            
+            println("═══════════════════════════════════════════════════════")
+            println("  Current Dynamic Package Name:")
+            println("  → $pkg")
+            println("  Generated at: $time")
+            println("═══════════════════════════════════════════════════════")
+        } else {
+            println("No package configuration found. Will generate on next build.")
+        }
+    }
+}
+
+// 应用动态包名到 Manifest
+task("applyDynamicPackage") {
+    group = "dynamic package"
+    description = "Apply dynamic package name to AndroidManifest.xml"
+    
+    doLast {
+        backupManifest()
+        val newPackage = getOrCreatePackageName()
+        modifyManifestPackage(newPackage)
+    }
+}
+
+// 恢复原始 Manifest
+task("restoreOriginalManifest") {
+    group = "dynamic package"
+    description = "Restore original AndroidManifest.xml from backup"
+    
+    doLast {
+        restoreManifest()
+    }
+}
+
+// 重新生成包名
+task("regeneratePackageName") {
+    group = "dynamic package"
+    description = "Generate a new random package name"
+    
+    doLast {
+        val configFile = rootProject.file("dynamic_package.properties")
+        if (configFile.exists()) {
+            configFile.delete()
+        }
+        
+        val newPackage = generateAndSavePackageName(configFile)
+        
+        println("")
+        println("═══════════════════════════════════════════════════════")
+        println("  New Random Package Generated!")
+        println("  → $newPackage")
+        println("")
+        println("  Next steps:")
+        println("  1. Run: ./gradlew app:applyDynamicPackage")
+        println("  2. Build: ./gradlew assembleRelease")
+        println("═══════════════════════════════════════════════════════")
+    }
+}
 
 task("downloadGeoFiles") {
 
@@ -54,16 +211,23 @@ task("downloadGeoFiles") {
     }
 }
 
+// 自动在构建前应用动态包名
 afterEvaluate {
     val downloadGeoFilesTask = tasks["downloadGeoFiles"]
+    val applyPackageTask = tasks["applyDynamicPackage"]
 
     tasks.forEach {
         if (it.name.startsWith("assemble")) {
             it.dependsOn(downloadGeoFilesTask)
+            it.dependsOn(applyPackageTask)
         }
     }
 }
 
 tasks.getByName("clean", type = Delete::class) {
     delete(file(geoFilesDownloadDir))
+    // Clean 时恢复原始 Manifest
+    doLast {
+        restoreManifest()
+    }
 }
