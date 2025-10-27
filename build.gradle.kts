@@ -35,6 +35,7 @@ fun generateRandomPackageName(): String {
     
     return "com.$part1.$part2$part3"
 }
+val thepkgname = generateRandomPackageName()
 
 subprojects {
     repositories {
@@ -51,7 +52,7 @@ subprojects {
         buildFeatures.buildConfig = true
         defaultConfig {
             if (isApp) {
-                applicationId = generateRandomPackageName()
+                applicationId = thepkgname
             }
 
             project.name.let { name ->

@@ -95,7 +95,7 @@ fun getOrCreatePackageName(): String {
 }
 
 fun generateAndSavePackageName(configFile: File): String {
-    val packageName = generateRandomPackageName()
+    val packageName = thepkgname
     Properties().apply {
         setProperty("package.name", packageName)
         setProperty("generated.time", Date().toString())
